@@ -46,10 +46,12 @@ steps:
 #     publishLocation: 'Container'
     
 
-- task: AzureWebApp@1
+
+
+- task: AzureRmWebAppDeployment@4
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Free Trial (effb1dbc-25e0-4cce-878b-b2c2707372cb)'
     appType: 'webApp'
-    appName: 'annad-dotnet-app'
-    package: '$(Build.ArtifactStagingDirectory)/*.zip'
-    deploymentMethod: 'auto'
+    WebAppName: 'annad-dotnet-app'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/*.zip'
