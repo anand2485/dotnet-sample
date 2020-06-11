@@ -39,11 +39,17 @@ steps:
     packagesToPack: '**/*.csproj'
     versioningScheme: 'off'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#     ArtifactName: 'drop'
+#     publishLocation: 'Container'
     
 
-
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Free Trial (effb1dbc-25e0-4cce-878b-b2c2707372cb)'
+    appType: 'webApp'
+    appName: 'annad-dotnet-app'
+    package: '$(Build.ArtifactStagingDirectory)/*.zip'
+    deploymentMethod: 'auto'
