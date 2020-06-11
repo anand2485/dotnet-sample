@@ -49,10 +49,7 @@ stages:
         ArtifactName: 'drop'
         publishLocation: 'Container'
 
-- stage: DevDeploy
-  jobs:
-  - job: DevDeploy
-    steps:
+
     
 # - task: PublishBuildArtifacts@1
 #   inputs:
